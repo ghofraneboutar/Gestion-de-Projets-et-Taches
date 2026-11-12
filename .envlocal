@@ -1,2 +1,4 @@
 PORT=Port du serveur
 MONGO_URI=Adresse de la base.
+JWT_SECRET=Clé secrète qui signe les tokens
+EXPIRATION=Durée de vie d’un token.
