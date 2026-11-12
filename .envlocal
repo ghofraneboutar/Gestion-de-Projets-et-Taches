@@ -1,0 +1,2 @@
+PORT=Port du serveur
+MONGO_URI=Adresse de la base.
