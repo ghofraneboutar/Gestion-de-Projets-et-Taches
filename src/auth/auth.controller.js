@@ -24,8 +24,7 @@ exports.register = async (req, res, next) => {
     if (existe) {
       return res.status(409).json({ message: 'Ce login est déjà utilisé' });
     }
-
-    // نشفّرو الباسوورد قبل ما نخزّنوه
+  // hasher le password kbal manhotouh fil base
     const hash = await bcrypt.hash(password, 10);
 
     const user = await User.create({ nom, login, password: hash, role });

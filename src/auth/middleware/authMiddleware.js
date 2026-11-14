@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../../user/user.model');
 
-// نتحققو من الـ token ونحطو المستخدم في req.user
+// middleware pour vérifier le token JWT et authentifier l'utilisateur
 const auth = async (req, res, next) => {
   try {
     const header = req.headers.authorization;
@@ -23,7 +23,7 @@ const auth = async (req, res, next) => {
   }
 };
 
-// برك المانجر يعدّي (لازم يجي بعد auth)
+// middleware pour vérifier ken il user est un manager
 const isManager = (req, res, next) => {
   if (req.user.role !== 'manager') {
     return res.status(403).json({ message: 'Accès réservé au manager' });
