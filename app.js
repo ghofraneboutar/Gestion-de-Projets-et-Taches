@@ -1,7 +1,9 @@
 const express = require('express');
 const authRoutes = require('./src/auth/auth.routes');
+const projectRoutes = require('./src/project/project.routes');
 
 const app = express();
+
 
 app.use(express.json());
 
@@ -9,6 +11,7 @@ app.use(express.json());
 app.get('/', (req, res) => res.json({ message: 'API en marche' }));
 
 app.use('/auth', authRoutes);
+app.use('/projects', projectRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err);
